@@ -1,5 +1,6 @@
 const electron = require('electron');
 const path = require('path');
+const timerTray = require('./app/timerTray');
 
 const { app, BrowserWindow, Tray } = electron;
 
@@ -23,29 +24,9 @@ app.on('ready', ()=>{
     const iconPath = path.join(__dirname, `./src/assets/${icon}`);
 
     mainWindow.loadURL(`file://${__dirname}/src/index.html`);
-    mainTray = new Tray(iconPath);  
 
-    mainTray.on('click', (event, bounds)=>{
-
-        const { x, y } = bounds;
-        const { height, width } = mainWindow.getBounds(); 
-
-        mainWindow.setBounds({
-            x: Math.round(x - width/2),
-            y: y - height,
-            height: height,
-            width: width,
-        });
-
-        if(mainWindow.isVisible())
-        {
-            mainWindow.hide();
-        }
-        else
-        {
-            mainWindow.show();
-        }
-    });
+    mainTray = new timerTray(iconPath, mainWindow);
+    
 
 });
 
