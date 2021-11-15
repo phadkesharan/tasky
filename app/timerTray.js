@@ -10,12 +10,12 @@ class timerTray extends Tray{
         super(iconPath);
         this.on('click', this.onClick);
         this.mainWindow = mainWindow;
+        this.setToolTip('Tasky');
     }
 
     onClick(event, bounds){
         const { x, y } = bounds;
         const { height, width } = this.mainWindow.getBounds(); 
-        this.setToolTip('Tasky')
 
         this.mainWindow.setBounds({
             x: Math.round(x - width/2),
