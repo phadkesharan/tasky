@@ -9,6 +9,7 @@ class mainWindow extends BrowserWindow{
             webPreferences: {
                 nodeIntegration: true,
                 contextIsolation: false,
+                backgroundThrottling: false,
             },
             height: 500,
             width: 300,
