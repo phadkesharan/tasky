@@ -2,14 +2,16 @@
   "name": "timer",
   "version": "1.0.0",
   "description": "Electron timer app",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "electron": "electron ."
+    "electron": "electron .",
+    "build" : "electron-packager . Tasky"
   },
-  "author": "HowtoCode",
+  "author": "Sharan Phadke",
   "devDependencies": {
-    "electron": "~1.6.2"
+    "electron": "~1.6.2",
+    "electron-packager": "^15.4.0"
   },
   "dependencies": {
     "babel-core": "^6.24.0",
